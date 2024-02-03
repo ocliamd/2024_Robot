@@ -20,8 +20,6 @@ import frc.robot.commands.swervedrive.drivebase.AbsoluteDrive;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
 import frc.robot.subsystems.SwerveSubsystem;
 import java.io.File;
-import frc.robot.subsystems.ArmSubsystem;
-import frc.robot.commands.ArmCmd;
 
 
 /**
@@ -38,7 +36,6 @@ public class RobotContainer
   // CommandJoystick rotationController = new CommandJoystick(1);
   // Replace with CommandPS4Controller or CommandJoystick if needed
   CommandJoystick driverController = new CommandJoystick(0);
-  ArmSubsystem armSubsystem = new ArmSubsystem(); 
 
   // CommandJoystick driverController   = new CommandJoystick(3);//(OperatorConstants.DRIVER_CONTROLLER_PORT);
   // XboxController driverXbox = new XboxController(0);
@@ -111,7 +108,6 @@ public class RobotContainer
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 
     driverController.button(4).onTrue((new InstantCommand(drivebase::zeroGyro)));
-    driverController.button(2).onTrue(new ArmCmd(this.armSubsystem));
     // new JoystickButton(driverXbox, 3).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
 //    new JoystickButton(driverXbox, 3).whileTrue(new RepeatCommand(new InstantCommand(drivebase::lock, drivebase)));
   }
